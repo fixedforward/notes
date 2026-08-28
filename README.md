@@ -18,7 +18,6 @@ Personal notes on shortcuts and lessons learned across topics. Obsidian vault.
 | [`linux/`](linux/) | Linux command-line notes |
 | [`messaging/`](messaging/) | RabbitMQ and messaging patterns |
 | [`networking/`](networking/) | nginx, SSL/TLS, DNS record types |
-| [`notes/`](notes/) | Obsidian starter content |
 | [`powershell/`](powershell/) | PowerShell notes |
 | [`python/`](python/) | Python and Django |
 | [`security/`](security/) | AuthN/AuthZ, CORS, Content Security Policy |
