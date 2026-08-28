@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_name // \"een tool\"' | { read -r t; osascript -e 'on run argv' -e 'display notification \"Claude vraagt toestemming voor: \" & (item 1 of argv) with title \"Claude Code\"' -e 'end run' \"$t\"; } 2>/dev/null || true"
+            "command": "\"$HOME/.claude/hooks/claude-notify.sh\""
           }
         ]
       }
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Sessie klaar\" with title \"Claude Code\"' 2>/dev/null || true"
+            "command": "\"$HOME/.claude/hooks/claude-notify.sh\""
           }
         ]
       }
