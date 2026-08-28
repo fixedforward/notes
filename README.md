@@ -6,7 +6,7 @@ Personal notes on shortcuts and lessons learned across topics. Obsidian vault.
 
 | Folder | Contents |
 |---|---|
-| [`AI/`](AI/) | AI tooling notes and reusable [`skills/`](AI/skills/) (e.g. `plan-then-execute`) |
+| [`AI/`](AI/) | AI tooling notes, reusable [`skills/`](AI/skills/) (e.g. `plan-then-execute`), and Claude Code config backups ([`claude-hooks/`](AI/claude-hooks/), [`claude-output-styles/`](AI/claude-output-styles/)) |
 | [`cloud/`](cloud/) | AWS (S3, VPC, Route53, IAM), deployment, Kubernetes in the cloud, KCNA prep |
 | [`csharp/`](csharp/) | C# / .NET — async/await, generics, null handling, clean architecture, tracing, unit of work, gRPC, auth |
 | [`css/`](css/) | CSS, Flexbox, HTML basics |
