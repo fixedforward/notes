@@ -4,7 +4,7 @@ Backup of my Claude Code hook configuration. Source of truth: `~/.claude/setting
 
 ## Files
 
-- [`settings.hooks.json`](settings.hooks.json) — the `hooks` block, extracted verbatim.
+- [`settings.hooks.json`](settings.hooks.json) — the hand-written `hooks` (Superset-managed hooks omitted).
 
 ## What the hooks do
 
@@ -12,7 +12,6 @@ Backup of my Claude Code hook configuration. Source of truth: `~/.claude/setting
 |---|---|
 | `PermissionRequest` | macOS `display notification` — "Claude vraagt toestemming voor: `<tool_name>`" (parsed from the hook payload with `jq`) |
 | `Stop` | macOS `display notification` — "Sessie klaar" |
-| `PermissionRequest`, `Stop`, `SessionStart`, `SessionEnd`, `UserPromptSubmit`, `StopFailure`, `PostToolUse`, `PostToolUseFailure` | Call `$SUPERSET_HOME_DIR/hooks/notify.sh` if present — **managed by Superset**, not hand-written; safe to drop if not using Superset |
 
 All commands end in `|| true` so a missing dependency never blocks the session.
 
