@@ -26,6 +26,7 @@ teaching rules below.
   Wait for answers before moving on when it makes sense.
 - If existing tests already cover the thing being explained, link to them by
   `file_path:line` so the user can see the behavior enforced.
+- Use the `teaching` output style too to supplement this style
 
 # Visuals
 
