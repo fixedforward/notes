@@ -13,6 +13,22 @@
 - No cross-model setup is available yet at time of writing this doc
 
 ## Best practices
+### General prompting
+- Run `/clear` in a chat window if you want to do an unrelated task, or start it in a separate chat. Otherwise, the history of the chat in that window will be used to answer your question, eating up your tokens! Remember you ran out of tokens at work because of laziness of not doing this.
+  - This is even more important if your prompt makes lots of tool calls. What AI does is:
+    ```
+    your message
+  → model call 1: reads EVERYTHING (instructions + whole conversation) → decides: run `grep FetchDefault`
+  → tool runs, result (10 lines) is added to the conversation
+  → model call 2: reads EVERYTHING again + those 10 lines → decides: run `sed` on the validator
+  → tool runs, result added
+  → model call 3: reads EVERYTHING again + both results → ...
+  → last model call: writes the answer
+    ```
+    so after every tool run, it reads the whole (very long) convo again, eating up tokens. Even if there is caching (reading from cache is cheaper), still it adds up.
+
+    
+### Coding
 - The context window is limited and answers get worse as it fills. Keep it clean.
   - Give investigations a clear scope, or the agent reads hundreds of files.
   - Delegate wide searches so those file reads don't fill your main context.
@@ -21,6 +37,7 @@
 - Prefer CLI tools (`gh`, `aws`, `gcloud`); they use less context than other integrations.
 - Before calling it done, review the diff against the plan with fresh eyes. Report only real bugs or missing requirements, not style.
 - Common mistakes: mixing many tasks in one session, correcting in circles, an overlong instructions file, shipping without verifying, unscoped exploration.
+
 
 ### Prompting
 - A prompt is either a **command** or a **question**.
