@@ -17,13 +17,7 @@
 - Run `/clear` in a chat window if you want to do an unrelated task, or start it in a separate chat. Otherwise, the history of the chat in that window will be used to answer your question, eating up your tokens! Remember you ran out of tokens at work because of laziness of not doing this.
   - This is even more important if your prompt makes lots of tool calls. What AI does is:
     ```
-    your message
-  → model call 1: reads EVERYTHING (instructions + whole conversation) → decides: run `grep FetchDefault`
-  → tool runs, result (10 lines) is added to the conversation
-  → model call 2: reads EVERYTHING again + those 10 lines → decides: run `sed` on the validator
-  → tool runs, result added
-  → model call 3: reads EVERYTHING again + both results → ...
-  → last model call: writes the answer
+    your message → model call 1: reads EVERYTHING (instructions + whole conversation) → decides: run `grep FetchDefault` → tool runs, result (10 lines) is added to the conversation → model call 2: reads EVERYTHING again + those 10 lines → decides: run `sed` on the validator → tool runs, result added → model call 3: reads EVERYTHING again + both results → ... → last model call: writes the answer
     ```
     so after every tool run, it reads the whole (very long) convo again, eating up tokens. Even if there is caching (reading from cache is cheaper), still it adds up.
 
